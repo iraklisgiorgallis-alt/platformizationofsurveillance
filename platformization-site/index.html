@@ -1,0 +1,490 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Platformization of Surveillance</title>
+<meta name="description" content="How does the outsourcing of surveillance to private firms impact the plebeian and state institutions? A digital exploration of Palantir Technologies.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;0,8..60,700;1,8..60,400;1,8..60,600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<script src="script.js" defer></script>
+</head>
+<body>
+<a class="skip" href="#top">Skip to the text</a>
+
+<div class="topbar" aria-hidden="false">
+  <div class="topbar__trace"><span class="topbar__fill"></span></div>
+  <span class="topbar__trace-n" aria-hidden="true">0</span>
+  <button class="topbar__toggle" type="button" aria-expanded="false" aria-controls="rail">Contents</button>
+</div>
+
+<div class="page">
+
+  <aside class="rail" id="rail" aria-label="Contents">
+    <div class="rail__inner">
+      <p class="rail__label">Contents</p>
+      <div class="rail__track" aria-hidden="true"><span class="rail__fill"></span></div>
+      <nav>
+        <ol class="rail__list">
+          <li><a href="#top">Theme</a></li>
+          <li class="rail__part"><a href="#part-1">Part 1: Extraction of Data</a></li>
+          <li><a href="#s1-1"><span>1.1</span> Literature review</a></li>
+          <li><a href="#s1-2"><span>1.2</span> The data economy that feeds surveillance</a></li>
+          <li><a href="#s1-3"><span>1.3</span> Predictive policing: scale without evidence</a></li>
+          <li><a href="#s1-4"><span>1.4</span> What Part 1 shows</a></li>
+          <li class="rail__part"><a href="#part-2">Part 2: Integration of Data</a></li>
+          <li><a href="#s2-1"><span>2.1</span> Palantir: the hinge between extraction and the state</a></li>
+          <li><a href="#s2-2"><span>2.2</span> Palantir in its own words</a></li>
+          <li><a href="#s2-3"><span>2.3</span> Case study 1: Palantir in the US, from the LAPD to ICE</a></li>
+          <li><a href="#s2-4"><span>2.4</span> Case study 2: Palantir in Germany (hessenDATA)</a></li>
+          <li class="rail__part"><a href="#takeaways">Takeaways and our understanding</a></li>
+          <li class="rail__part"><a href="#appendix">Appendix A compiled data list</a></li>
+          <li class="rail__part"><a href="#sources">Sources</a></li>
+        </ol>
+      </nav>
+      <div class="trace">
+        <p class="trace__label">Your trace on this page</p>
+        <div class="trace__strip" aria-hidden="true"></div>
+        <p class="trace__count"><span class="trace__n">0</span> events recorded</p>
+        <button class="trace__toggle" type="button" aria-expanded="false">Show the log</button>
+        <ol class="trace__log" hidden></ol>
+        <p class="trace__note">Kept in this tab only. Nothing is stored or sent.</p>
+      </div>
+    </div>
+  </aside>
+
+  <main class="doc" id="main">
+
+    <!-- ============ THEME ============ -->
+    <header class="opening" id="top">
+      <div class="barcode" data-barcode="Platformization of Surveillance" aria-hidden="true"></div>
+      <h1 class="title"><span class="title__kicker">THEME:</span> <span class="title__main">Platformization of Surveillance</span></h1>
+      <p class="byline">Iraklis Giorgallis &amp; Muhammed Ozen</p>
+      <p class="question"><em>How does the <span class="hl" data-term="outsourcing">outsourcing</span> of surveillance to private firms impact <span class="hl" data-term="plebeian">the plebeian</span> and <span class="hl" data-term="state">state institutions</span>, and what does this reveal about how <span class="hl" data-term="risk">risk and disadvantage</span> are distributed?</em></p>
+      <div class="terms">
+        <p class="terms__label">Key terms</p>
+        <dl class="terms__list">
+          <div class="terms__row" data-term="outsourcing"><dt>Outsourcing</dt><dd>a state paying a private firm for work it would otherwise do itself.</dd></div>
+          <div class="terms__row" data-term="plebeian"><dt>The plebeian</dt><dd>ordinary people, especially those who rely on public services.</dd></div>
+          <div class="terms__row" data-term="state"><dt>State institutions</dt><dd>the police, agencies and ministries that buy and use these systems.</dd></div>
+          <div class="terms__row" data-term="risk"><dt>Risk and disadvantage</dt><dd>who is flagged as a risk, and who bears the consequences.</dd></div>
+        </dl>
+      </div>
+    </header>
+
+    <section class="intro">
+      <p class="lede">Every time a person uses a loyalty card, calls a hotline, or walks past a networked camera, they generate a data trace that was never designed with law enforcement in mind; yet, that trace can end up feeding a policing algorithm. <strong>This raises the question that our research aims to investigate: how does the outsourcing of surveillance to private firms impact the plebeian and state institutions, and what does this reveal about how risk and disadvantage are distributed?</strong> In order to answer this research question, this digital exploration tackles the subject matter from varying perspectives; the first part will trace the upstream problem: the extractive economy that produces the data in the first place - the almost complete absence of consent at the point where the data crosses into a security apparatus.</p>
+      <p>The second part follows the data downstream to Palantir Technologies, the firm paid to put it back together for the state, through two case studies: the Los Angeles Police Department's use of Palantir, which shows the impact on the plebeian, and the German state of Hesse's hessenDATA system, which shows the impact on state institutions.</p>
+
+      <figure class="flow wide" aria-labelledby="fig-order">
+        <figcaption class="fig-head" id="fig-order"><strong>Figure 1. The order of our argument</strong></figcaption>
+        <div class="flow__body">
+          <div class="flow__col flow__col--sources">
+            <a class="flow__node" href="#s1-2">Everyday data<small>shopping, calls, cameras</small></a>
+            <a class="flow__node" href="#s1-1">Public-service data<small>health, housing, benefits</small></a>
+          </div>
+          <span class="flow__arrow" aria-hidden="true"></span>
+          <a class="flow__node" href="#s1-2">Data brokers and affiliate agencies</a>
+          <span class="flow__arrow" aria-hidden="true"></span>
+          <a class="flow__node" href="#s1-1">Legal gateways and contracts</a>
+          <span class="flow__arrow" aria-hidden="true"></span>
+          <a class="flow__node flow__node--platform" href="#s2-1">Private platform<small>Palantir, Qlik Sense</small></a>
+          <span class="flow__arrow" aria-hidden="true"></span>
+          <a class="flow__node" href="#s2-3">Risk scores and target lists</a>
+          <span class="flow__arrow" aria-hidden="true"></span>
+          <a class="flow__node flow__node--end" href="#s2-3">Police stops, deportation leads</a>
+        </div>
+        <div class="flow__parts" aria-hidden="true">
+          <span class="flow__part flow__part--1">Part 1</span>
+          <span class="flow__part flow__part--2">Part 2</span>
+        </div>
+      </figure>
+    </section>
+
+    <!-- ============ PART 1 ============ -->
+    <section class="part" id="part-1" aria-labelledby="part-1-h">
+      <header class="part__head">
+        <h2 id="part-1-h"><span class="part__no">Part 1:</span> <span class="part__name">Extraction of Data</span></h2>
+        <div class="barcode barcode--light" data-barcode="Extraction of Data" aria-hidden="true"></div>
+      </header>
+
+      <section class="sec" id="s1-1">
+        <h3><span class="sec__no">1.1</span> Literature review</h3>
+        <p>Shoshana Zuboff’s concept of surveillance capitalism, as summarised in Faine Greenwood’s chapter on humanitarian drones<sup class="cites"><a class="cite" href="http://www.jstor.org/stable/j.ctv14rms6g.12" target="_blank" rel="noopener" data-ref="1">1</a></sup>, frames commercial data collection as an, ‘’<em>emergent logic of accumulation,</em>’’ in which human experience is treated as a free raw material to be converted into behavioural predictions- <em>‘’about predicting us, without actually caring what we do or what is done to us.’’</em> Crucially, Greenwood stresses that the people whose data is extracted have no meaningful say in this transaction: companies frame the data they take as a resource that would otherwise be, ‘’wasted,’’ rather than something that requires consent to collect. Moreover, her sociological contribution in this respect is to link this case study directly to colonialism as an analytic frame: data extraction is described as a form of, ‘’accumulation by dispossession,’’ in which the people generating the data occupy a structurally subordinate position to the corporations and institutions that extract it, echoing older colonial relations between extractive powers and the populations they extracted from. This matters sociologically because it reframes data collection not as a neutral technical process, but as a power relation: one where consent is structurally absent, not just practically overlooked.</p>
+        <p>Sarah Brayne’s ethnographic study of the LAPD<sup class="cites"><a class="cite" href="http://www.jstor.org/stable/26426413" target="_blank" rel="noopener" data-ref="2">2</a></sup> gives this dynamic an institutional home, and situates it explicitly within the theory of surveillance as social sorting (drawing on David Lyon): surveillance, <em>‘’sorts people into categories, assigning worth or risk, in ways that have real effects on their life chances.’’</em> Her fieldwork demonstrates 5 concrete shifts that move policing from traditional, discretion-based surveillance toward a, ‘’big data,’’ model;</p>
+        <ol class="shifts">
+          <li>Quantified risk scores replacing officer judgement,</li>
+          <li>Predictive rather than reactive analytics,</li>
+          <li>Automated alerts replacing manual queries,</li>
+          <li>Databases that include people with no direct police contact,</li>
+          <li>The merging of previously separate institutional data systems.</li>
+        </ol>
+        <p>These shifts are not merely technical changes: they are framed following labelling theory (Becker, Goffman) as an extension of how criminal justice marks people, arguing that being entered into these databases can function like a new, digitised form of stigma associated with a criminal record, that can now spread into non-criminal-justice institutions such as healthcare or employment.</p>
+
+        <figure class="plate wide" data-explore="brayne">
+          <button class="plate__zoom" type="button" aria-label="Enlarge Figure 2">
+            <img src="images/brayne-migration.jpg" width="1198" height="622" loading="lazy" alt="Diagram of five police practices moving from traditional surveillance on the left to big data surveillance on the right: discretionary to quantified risk assessment, explanatory to predictive analytics, query-based to alert-based information systems, moderate to low inclusion threshold, and disparate to integrated data.">
+          </button>
+          <figcaption><strong>Figure 2.</strong> Migration of Traditional Police Practices toward Big Data Surveillance<sup class="cites"><a class="cite" href="http://www.jstor.org/stable/26426413" target="_blank" rel="noopener" data-ref="2">2</a></sup></figcaption>
+        </figure>
+
+        <p>In fact, the clearest empirical illustration of such dynamics can be explored even more thoroughly in Pearson, Jensen and Adey’s reconstruction of Avon and Somerset Constabulary’s Qlik Sense system<sup class="cites"><a class="cite" href="https://doi.org/10.24908/ss.v22i2.15826" target="_blank" rel="noopener" data-ref="3">3</a></sup>. They show that policing data infrastructures are not self-contained: they are fed by a network of external, non-police, ‘’affiliate,’’ organisations - health services, schools, housing authorities, addiction services - whose data is folded into risk scores through what the authors call, ‘’legal gateways,’’: statutory exceptions that enable this data to move without the individual’s consent. Their central finding is that this process does not make crime more visible; it makes poverty more visible, because the data points available for scoring (rent arrears, benefit status) are proxies for socioeconomic disadvantage rather than for criminal offences. Therefore, this renders the system’s ‘’risk,’’ categories as a quiet re-encoding of class positions as suspicion, as the people most reliant on public services become correspondingly more visible to the state, while those with the means to seek help privately effectively disappear from the system.</p>
+        <p><strong>Evidence from Avon and Somerset.</strong> Qlik Sense, the system Pearson, Jensen, and Adey reconstruct, filters and scores roughly 250,000 people daily for Avon and Somerset Constabulary and absorbs about 10 million pieces of data per day, drawn from policing systems, historic crime records, and external health and social data systems.<sup class="cites"><a class="cite" href="https://doi.org/10.24908/ss.v22i2.15826" target="_blank" rel="noopener" data-ref="3">3</a></sup></p>
+
+        <figure class="plate wide" data-explore="qlik">
+          <button class="plate__zoom" type="button" aria-label="Enlarge Figure 3">
+            <img src="images/qlik-network.jpg" width="1269" height="792" loading="lazy" alt="Network graph of the Qlik Sense data-sharing network, with labelled hubs including the Office of Data Analytics, Qlik Sense, Think Family, Avon and Somerset Police, Bristol City Council, Bristol's Integrated Analytics Hub, the Violence Reduction Unit, Connecting Care, Clinical Commissioning Groups and Bristol's drug and alcohol service.">
+          </button>
+          <figcaption><strong>Figure 3.</strong> The Qlik Sense Data Sharing network<sup class="cites"><a class="cite" href="https://doi.org/10.24908/ss.v22i2.15826" target="_blank" rel="noopener" data-ref="3">3</a></sup></figcaption>
+        </figure>
+
+        <p>Their mapped data-sharing networks contain at least 195 distinct nodes, the largest of which- the Office for Data Analytics (71 links), Qlik Sense itself (55 links) and, ‘’Think Family,’’ (48 links)- function as aggregation hubs pulling in data from organisations with no policing mandate at all: drug and alcohol services, housing authorities and city councils.</p>
+
+        <figure class="plate" data-explore="vru">
+          <button class="plate__zoom" type="button" aria-label="Enlarge Figure 4">
+            <img src="images/vru-node.jpg" width="988" height="714" loading="lazy" alt="Star diagram centred on the Violence Reduction Unit, linked to data sources such as school absences and exclusions, child claiming free school meals, teenage parent, mental health concern, missing persons, drug and alcohol data, historic crime data and Avon and Somerset Police.">
+          </button>
+          <figcaption><strong>Figure 4.</strong> The Violence Reduction Unit Note<sup class="cites"><a class="cite" href="https://doi.org/10.24908/ss.v22i2.15826" target="_blank" rel="noopener" data-ref="3">3</a></sup></figcaption>
+        </figure>
+      </section>
+
+      <section class="sec" id="s1-2">
+        <h3><span class="sec__no">1.2</span> The data economy that feeds surveillance</h3>
+        <p>To support this digital exploration’s findings and literature with evidence, it is important to be concrete regarding the numbers behind the argument rather than treating surveillance capitalism as merely an abstraction.</p>
+        <p>These mechanisms run on an existing, enormous consumer data economy that operates with essentially no consent architecture. Data brokers, the industry that aggregates and resells exactly the kind of, ‘’affiliate,’’ consumer data that ends up feeding systems like Qlik Sense, now hold an estimated 1,000 or more data points per individual on average, with major players like Acxiom (now LiveRamp) claiming files on 2.5 billion people worldwide with over 3,000 data points per person as of 2023. The Federal Trade Commission found that a single data-broker segment alone held records on 1.4 billion consumer transactions and over 700 billion raw data elements.<sup class="cites"><a class="cite" href="https://www.ftc.gov/news-events/news/press-releases/2014/05/ftc-recommends-congress-require-data-broker-industry-be-more-transparent-give-consumers-greater" target="_blank" rel="noopener" data-ref="4">4</a></sup></p>
+        <p>The industry itself is valued at roughly $264 billion as of 2023, projected to grow to $471 billion by 2032- and US Federal agencies are already direct customers of it: the Department of Homeland Security has purchased cell phone location data and home utility data from brokers to facilitate deportations, and the FBI has purchased personal data from the broker Venntel.<sup class="cites"><a class="cite" href="https://www.brennancenter.org/our-work/analysis-opinion/federal-agencies-are-secretly-buying-consumer-data" target="_blank" rel="noopener" data-ref="5">5</a></sup> This is the same consent-free pipeline that Greenwood and Pearson et al. describe theoretically, now visible on a national security scale.</p>
+      </section>
+
+      <section class="sec" id="s1-3">
+        <h3><span class="sec__no">1.3</span> Predictive policing: scale without evidence</h3>
+        <p>Predictive policing shows the same pattern at the LAPD. PredPol, a separate company, forecast where vehicle crimes were likely to happen, while Palantir was the platform used to track the resulting patrols. Brayne's institutional account<sup class="cites"><a class="cite" href="http://www.jstor.org/stable/26426413" target="_blank" rel="noopener" data-ref="2">2</a></sup> mentions that in 2019, both PredPol and Upturn reported high rates of usage of predictive policing tools among US police agencies. However, departments in New York, Chicago, Los Angeles have all been sued for refusing to release information about their predictive policing programs. This gap between the scale of data collection and the near absence of proof that it is actually transparent and effectively improving outcomes shows that the system’s expansion is not being driven by demonstrated need or benefit, but rather by wider organisational pressure to appear modern and data-driven, regardless of whether the practice genuinely reduces crime.<sup class="cites"><a class="cite" href="https://www.govtech.com/public-safety/Police-Leaders-Debate-Merits-of-Using-Data-to-Predict-Crime.html" target="_blank" rel="noopener" data-ref="6">6</a>, <a class="cite" href="https://apnews.com/article/14bb35110b644edc8798365ade767bd2" target="_blank" rel="noopener" data-ref="7">7</a>, <a class="cite" href="https://www.upturn.org/work/mass-extraction/" target="_blank" rel="noopener" data-ref="8">8</a>, <a class="cite" href="https://www.rstreet.org/commentary/what-works-in-american-policing-part-6-predictive-policing-promise-pitfalls-and-the-limits-of-algorithmic-forecasting/" target="_blank" rel="noopener" data-ref="9">9</a>, <a class="cite" href="https://www.govtech.com/public-safety/LAPD-to-Halt-Some-Data-Programs-After-Critical-Audit.html" target="_blank" rel="noopener" data-ref="10">10</a></sup></p>
+      </section>
+
+      <section class="sec" id="s1-4">
+        <h3><span class="sec__no">1.4</span> What Part 1 shows</h3>
+        <p>Taken together, this data suggest a specific sociological claim: these systems do not only watch more people, they watch unequally and sort the population by socioeconomic proxy while presenting that sorting as some sort of neutral, purely mathematical process of elimination. Palantir-style platforms are more precisely the mechanism that launders consent out of the equation, quietly absorbing data extracted under one set of already thin commercial terms and repurposing it, via, ‘’legal gateways,’’ and interagency agreements, for a purpose the original person never agreed to, in a way that lands disproportionately on those already disadvantaged. This handoff- from commercial extraction to state application- is exactly where our segment on Palantir picks up from where we left off.</p>
+      </section>
+    </section>
+
+    <!-- ============ PART 2 ============ -->
+    <section class="part" id="part-2" aria-labelledby="part-2-h">
+      <header class="part__head">
+        <h2 id="part-2-h"><span class="part__no">Part 2:</span> <span class="part__name">Integration of Data</span></h2>
+        <div class="barcode barcode--light" data-barcode="Integration of Data" aria-hidden="true"></div>
+      </header>
+
+      <section class="sec" id="s2-1">
+        <h3><span class="sec__no">2.1</span> Palantir: the hinge between extraction and the state</h3>
+        <p>If Part 1 traced how data is extracted,maintained, and sold, this Part <em>asks who is paid to put it back together</em>. Palantir Technologies is an unusual case in a discussion of surveillance capitalism, because it meets almost none of Zuboff's criteria. It has no consumer users, no advertising model and no behavioural futures market, and it has publicly denied that it can proactively share data across federal sources or compile data on citizens for its own purposes. What it sells is narrower and more consequential: the ability to fuse data that others have already collected (police records, health files, tax returns, broker data) into one searchable environment for a state client. Palantir is therefore best understood not as a surveillance capitalist but as the infrastructure at the hinge between commercial extraction and state application. The questions it raises are less about markets than about sovereignty, accountability and who ends up visible.</p>
+        <p>Iliadis and Acker (2022)<sup class="cites"><span class="cite cite--plain" data-ref="11" tabindex="0">11</span></sup> provide the backbone of our claim . They begin from the premise that Palantir is one of the most secretive and least-studied surveillance firms in the world that supply data integration and tracking tools to police, government agencies, humanitarian organisations and corporations. Alongside a history of the company, its contract network and its internal terminology, their main contribution is a computational topic model of 155 Palantir surveillance patents, which are public documents the company must file. This lets them reverse-engineer an otherwise opaque product. Their central concept is 'infrastructuring': Palantir is theorised as a surveillance platform whose power lies in information standards such as administrative metadata (which structure social worlds by governing access to information). They also treat surveillance platforms like Palantir as related to, but distinct from the platform surveillance practised by social media companies.</p>
+        <p>Wexler (2018)<sup class="cites"><span class="cite cite--plain" data-ref="12" tabindex="0">12</span></sup> explains the legal aspect of our research question. She observes that criminal justice is becoming automated at every stage and that developers often claim the workings of their tools are trade secrets, refusing to disclose them to defendants or their lawyers. Against the prevailing view of courts and legislatures, she argues that trade secrets should not be privileged in criminal proceedings. For this argument, the point is that outsourcing converts a public question (how was this person identified as a risk?) into a private property claim. The data double becomes contestable only as far as the vendor permits. This is a structural reason why the people most exposed to these systems are least able to challenge them. However, it should be noted that her findings are mainly relevant to the United States since legal systems differ from country to country.</p>
+      </section>
+
+      <section class="sec" id="s2-2">
+        <h3><span class="sec__no">2.2</span> Palantir in its own words</h3>
+        <p>Palantir's own filings and statements, collected for this project from company-published sources, show three things that matter for the research question: its business is replacing what states would otherwise build, its dependence on one state is rising fast, and it places responsibility for use on its customers.</p>
+        <p>The first thing to establish is scale. In Q2 2026 Palantir's revenue grew 93% year-on-year to $1.935 billion, with US government revenue up 90% to $809 million.<sup class="cites"><span class="cite cite--plain" data-ref="13" tabindex="0">13</span></sup> Around 54% of its FY2025 revenue came from governments,<sup class="cites"><a class="cite" href="https://www.sec.gov/Archives/edgar/data/1321655/000132165526000011/pltr-20251231.htm" target="_blank" rel="noopener" data-ref="14">14</a></sup> its US lobbying spend reached $6.08M in 2025 (up 153% on 2020), and its largest contract, a US Army enterprise agreement worth up to $10B over ten years, consolidated 75 earlier contracts.<sup class="cites"><a class="cite" href="https://palantirwatch.org/" target="_blank" rel="noopener" data-ref="15">15</a></sup></p>
+        <p><strong>Outsourcing is the business model.</strong> Palantir's 2025 annual report says it is "fundamentally competing with the internal software development efforts" of its customers (<a href="https://www.sec.gov/Archives/edgar/data/1321655/000132165526000011/pltr-20251231.htm" target="_blank" rel="noopener">10-K 2025</a>)<sup class="cites"><a class="cite" href="https://www.sec.gov/Archives/edgar/data/1321655/000132165526000011/pltr-20251231.htm" target="_blank" rel="noopener" data-ref="14">14</a></sup>. Its 2020 prospectus named becoming the U.S. government's default operating system as a goal, and credited its 2016 lawsuit against the U.S. Army with making that possible (<a href="https://www.sec.gov/Archives/edgar/data/1321655/000119312520230013/d904406ds1.htm" target="_blank" rel="noopener">S-1</a>)<sup class="cites"><a class="cite" href="https://www.sec.gov/Archives/edgar/data/1321655/000119312520230013/d904406ds1.htm" target="_blank" rel="noopener" data-ref="16">16</a></sup>.</p>
+        <p>Government revenue grew about sevenfold between 2019 and 2025, and years of losses turned into $1.63B of net income in 2025.<sup class="cites"><a class="cite" href="https://www.sec.gov/Archives/edgar/data/1321655/000119312520230013/d904406ds1.htm" target="_blank" rel="noopener" data-ref="16">16</a>, <a class="cite" href="https://www.sec.gov/Archives/edgar/data/1321655/000119312522050913/d273589d10k.htm" target="_blank" rel="noopener" data-ref="17">17</a>, <a class="cite" href="https://www.sec.gov/Archives/edgar/data/1321655/000132165526000011/pltr-20251231.htm" target="_blank" rel="noopener" data-ref="14">14</a>, <a class="cite" href="https://data.sec.gov/api/xbrl/companyconcept/CIK0001321655/us-gaap/NetIncomeLoss.json" target="_blank" rel="noopener" data-ref="18">18</a></sup></p>
+
+        <div class="graphs wide">
+          <figure class="graph" data-chart="segments" aria-labelledby="g-a">
+            <figcaption class="graph__head"><span class="graph__tag">Graph A</span> <span class="graph__title" id="g-a">Palantir revenue by segment, 2019–2025</span></figcaption>
+            <div class="graph__legend"></div>
+            <div class="graph__canvas" role="img" aria-label="Stacked columns of government and commercial revenue, 2019 to 2025. Government revenue rises from 345.5 million dollars in 2019 to 2,402.3 million in 2025; commercial from 397.0 million to 2,073.2 million."></div>
+            <p class="graph__source">US$ millions. Source: Palantir S-1 (2020) and annual reports, FY2019–FY2025<sup class="cites"><a class="cite" href="https://www.sec.gov/Archives/edgar/data/1321655/000119312520230013/d904406ds1.htm" target="_blank" rel="noopener" data-ref="16">16</a>, <a class="cite" href="https://www.sec.gov/Archives/edgar/data/1321655/000119312522050913/d273589d10k.htm" target="_blank" rel="noopener" data-ref="17">17</a>, <a class="cite" href="https://www.sec.gov/Archives/edgar/data/1321655/000132165526000011/pltr-20251231.htm" target="_blank" rel="noopener" data-ref="14">14</a></sup></p>
+          </figure>
+          <figure class="graph" data-chart="netincome" aria-labelledby="g-b">
+            <figcaption class="graph__head"><span class="graph__tag">Graph B</span> <span class="graph__title" id="g-b">Net income (loss) attributable to common stockholders</span></figcaption>
+            <div class="graph__legend graph__legend--none"></div>
+            <div class="graph__canvas" role="img" aria-label="Columns of net income from 2019 to 2025: losses of 588.1 million dollars in 2019, 1,166.4 million in 2020, 520.4 million in 2021 and 373.7 million in 2022, then profits of 209.8 million in 2023, 462.2 million in 2024 and 1,625.0 million in 2025."></div>
+            <p class="graph__source">US$ millions, GAAP. Source: SEC reported net income (loss)<sup class="cites"><a class="cite" href="https://data.sec.gov/api/xbrl/companyconcept/CIK0001321655/us-gaap/NetIncomeLoss.json" target="_blank" rel="noopener" data-ref="18">18</a></sup></p>
+          </figure>
+        </div>
+
+        <p><strong>The Implications:</strong><br>The long run of losses reflects a model built on free or low-cost pilots that pay off only once institutions depend on the platform and keep expanding it. In the first half of 2026, $795M of the $808M rise in government revenue came from government customers Palantir already had (<a href="https://www.sec.gov/Archives/edgar/data/0001321655/000132165526000041/pltr-20260630.htm" target="_blank" rel="noopener">10-Q, Q2 2026</a>)<sup class="cites"><a class="cite" href="https://www.sec.gov/Archives/edgar/data/0001321655/000132165526000041/pltr-20260630.htm" target="_blank" rel="noopener" data-ref="19">19</a></sup>. Late profitability is therefore evidence that these services are being used by States for the long term, not only for commercial success, although the early losses were also inflated by stock-based pay around the 2020 listing (<a href="https://www.sec.gov/Archives/edgar/data/1321655/000119312522050913/d273589d10k.htm" target="_blank" rel="noopener">10-K 2021</a>)<sup class="cites"><a class="cite" href="https://www.sec.gov/Archives/edgar/data/1321655/000119312522050913/d273589d10k.htm" target="_blank" rel="noopener" data-ref="17">17</a></sup>.</p>
+
+        <figure class="graph graph--slim wide" data-chart="existing" aria-labelledby="g-c">
+          <figcaption class="graph__head"><span class="graph__tag">Graph C</span> <span class="graph__title" id="g-c">Where the rise in government revenue came from, first half of 2026</span></figcaption>
+          <div class="graph__legend"></div>
+          <div class="graph__canvas" role="img" aria-label="One bar splitting the 808 million dollar rise in government revenue: 795 million from existing government customers and 13 million from new ones."></div>
+          <p class="graph__source">US$ millions, six months to 30 June 2026 against the same period of 2025. Source: Form 10-Q, Q2 2026<sup class="cites"><a class="cite" href="https://www.sec.gov/Archives/edgar/data/0001321655/000132165526000041/pltr-20260630.htm" target="_blank" rel="noopener" data-ref="19">19</a></sup></p>
+        </figure>
+
+        <p>The shift towards the US shows mutual dependence: US agencies rely more on Palantir, and Palantir's growth increasingly tracks one government's priorities. Two caveats apply. First, US commercial revenue is growing even faster than US government revenue (+149% against +90% in Q2 2026), so not all of the US surge is state surveillance (<a href="https://www.sec.gov/Archives/edgar/data/0001321655/000132165526000039/a2026q2ex991pressrelease.htm" target="_blank" rel="noopener">Q2 2026 release</a>)<sup class="cites"><a class="cite" href="https://www.sec.gov/Archives/edgar/data/0001321655/000132165526000039/a2026q2ex991pressrelease.htm" target="_blank" rel="noopener" data-ref="20">20</a></sup>. Second, the falling share from abroad does not mean other countries are leaving. Non-US revenue rose from about $446M in 2019 to about $1.16B in 2025, and grew about 34% in the year to Q2 2026, but far more slowly than in the US (<a href="https://www.sec.gov/Archives/edgar/data/1321655/000119312520241694/d904406ds1a.htm" target="_blank" rel="noopener">S-1/A</a>; <a href="https://www.sec.gov/Archives/edgar/data/1321655/000132165526000011/pltr-20251231.htm" target="_blank" rel="noopener">10-K 2025</a>; <a href="https://www.sec.gov/Archives/edgar/data/1321655/000132165525000105/a2025q2ex991pressrelease.htm" target="_blank" rel="noopener">Q2 2025 release</a>)<sup class="cites"><a class="cite" href="https://www.sec.gov/Archives/edgar/data/1321655/000119312520241694/d904406ds1a.htm" target="_blank" rel="noopener" data-ref="21">21</a>, <a class="cite" href="https://www.sec.gov/Archives/edgar/data/1321655/000132165526000011/pltr-20251231.htm" target="_blank" rel="noopener" data-ref="14">14</a>, <a class="cite" href="https://www.sec.gov/Archives/edgar/data/0001321655/000132165526000039/a2026q2ex991pressrelease.htm" target="_blank" rel="noopener" data-ref="20">20</a></sup>. Several of the clearest institutional reversals discussed below, in the Netherlands, London and at Germany's federal level, are outside the US: resistance there has slowed Palantir's growth rather than reversed it.</p>
+
+        <div class="graphs graphs--three wide">
+          <figure class="graph graph--span2" data-chart="quarterly" aria-labelledby="g-d">
+            <figcaption class="graph__head"><span class="graph__tag">Graph D</span> <span class="graph__title" id="g-d">US government revenue per quarter</span></figcaption>
+            <div class="graph__legend graph__legend--none"></div>
+            <div class="graph__canvas" role="img" aria-label="Columns of US government revenue per quarter from Q3 2024 to Q2 2026: 320, 343, 373, 426, 486, 570, 687 and 809 million dollars."></div>
+            <p class="graph__source">US$ millions. Source: Palantir quarterly earnings releases<sup class="cites"><a class="cite" href="https://www.sec.gov/Archives/edgar/data/0001321655/000132165526000039/a2026q2ex991pressrelease.htm" target="_blank" rel="noopener" data-ref="20">20</a></sup></p>
+          </figure>
+          <figure class="graph" data-chart="usshare" aria-labelledby="g-e">
+            <figcaption class="graph__head"><span class="graph__tag">Graph E</span> <span class="graph__title" id="g-e">US share of total revenue</span></figcaption>
+            <div class="graph__legend graph__legend--none"></div>
+            <div class="graph__canvas" role="img" aria-label="US share of Palantir revenue: 40 percent in 2019, 74 percent in 2025 and 81 percent in Q2 2026."></div>
+            <p class="graph__source">Source: S-1/A (2020), annual report FY2025, Q2 2026 release<sup class="cites"><a class="cite" href="https://www.sec.gov/Archives/edgar/data/1321655/000119312520241694/d904406ds1a.htm" target="_blank" rel="noopener" data-ref="21">21</a>, <a class="cite" href="https://www.sec.gov/Archives/edgar/data/1321655/000132165526000011/pltr-20251231.htm" target="_blank" rel="noopener" data-ref="14">14</a>, <a class="cite" href="https://www.sec.gov/Archives/edgar/data/0001321655/000132165526000039/a2026q2ex991pressrelease.htm" target="_blank" rel="noopener" data-ref="20">20</a></sup></p>
+          </figure>
+          <figure class="graph" data-chart="growth" aria-labelledby="g-f">
+            <figcaption class="graph__head"><span class="graph__tag">Graph F</span> <span class="graph__title" id="g-f">Year-on-year growth in the US, Q2 2026</span></figcaption>
+            <div class="graph__legend"></div>
+            <div class="graph__canvas" role="img" aria-label="Year-on-year growth in Q2 2026: US commercial revenue up 149 percent, US government revenue up 90 percent."></div>
+            <p class="graph__source">Source: Q2 2026 release<sup class="cites"><a class="cite" href="https://www.sec.gov/Archives/edgar/data/0001321655/000132165526000039/a2026q2ex991pressrelease.htm" target="_blank" rel="noopener" data-ref="20">20</a></sup></p>
+          </figure>
+        </div>
+
+        <p><strong>The line it drew has moved.</strong> In 2020 Palantir told Amnesty International it served only ICE's criminal-investigations arm and had "purposefully declined" contracts with ICE's deportation arm and Customs and Border Protection (<a href="https://www.business-humanrights.org/en/latest-news/letter-from-palantir-responding-to-amnesty-international/" target="_blank" rel="noopener">Palantir letter, 2020</a>)<sup class="cites"><a class="cite" href="https://www.business-humanrights.org/en/latest-news/letter-from-palantir-responding-to-amnesty-international/" target="_blank" rel="noopener" data-ref="22">22</a></sup>. In January 2026 it described an ICE application that supports prioritising specific immigration enforcement actions (<a href="https://blog.palantir.com/correcting-the-record-response-to-the-eff-january-15-2026-report-on-palantir-4b3a12536cd2" target="_blank" rel="noopener">Palantir Blog, 2026</a>)<sup class="cites"><a class="cite" href="https://blog.palantir.com/correcting-the-record-response-to-the-eff-january-15-2026-report-on-palantir-4b3a12536cd2" target="_blank" rel="noopener" data-ref="23">23</a></sup>.</p>
+
+        <figure class="tape wide" aria-labelledby="tape-title">
+          <figcaption class="tape__head">
+            <span class="graph__tag">Video</span>
+            <span class="tape__title" id="tape-title">Alex Karp, Palantir's chief executive, in his own words</span>
+          </figcaption>
+          <div class="tape__body">
+            <div class="tape__screen">
+              <video class="tape__video" controls playsinline preload="metadata" width="540" height="960" poster="videos/karp-dealbook-poster.jpg">
+                <source src="videos/karp-dealbook.mp4" type="video/mp4">
+              </video>
+            </div>
+            <div class="tape__notes">
+              <p class="tape__clip">“Palantir C.E.O. says any suggestion that Trump is a fascist is ‘stupid’”</p>
+              <p class="tape__why">Karp dismisses the question of whether Trump is a fascist as “stupid”, and says of the government taking a stake in Palantir: “we'll cross that road when we get there”. Set against the 2020 letter to Amnesty, it shows Palantir's public line moving with its biggest client.</p>
+              <p class="tape__label">Jump to</p>
+              <ol class="tape__marks">
+                <li><button class="tape__mark" type="button" data-t="1.6"><time>0:02</time><span>Is Trump a fascist?</span></button></li>
+                <li><button class="tape__mark" type="button" data-t="3.6"><time>0:04</time><span>“Stupid, honestly”</span></button></li>
+                <li><button class="tape__mark" type="button" data-t="40.9"><time>0:41</time><span>The C.I.A. as an early investor</span></button></li>
+                <li><button class="tape__mark" type="button" data-t="65.6"><time>1:06</time><span>“A piece of the action”</span></button></li>
+                <li><button class="tape__mark" type="button" data-t="81.8"><time>1:22</time><span>“We'll cross that road”</span></button></li>
+              </ol>
+              <p class="tape__credit">The New York Times · DealBook Summit, New York, 3 December 2025</p>
+            </div>
+          </div>
+        </figure>
+
+        <p><strong>Responsibility sits with the buyer.</strong> Palantir calls itself a "data processor" working inside each agency's legal and security boundary (<a href="https://blog.palantir.com/correcting-the-record-responses-to-the-may-30-2025-new-york-times-article-on-palantir-55b60ae107da" target="_blank" rel="noopener">Palantir Blog, 2025</a>)<sup class="cites"><a class="cite" href="https://blog.palantir.com/correcting-the-record-responses-to-the-may-30-2025-new-york-times-article-on-palantir-55b60ae107da" target="_blank" rel="noopener" data-ref="24">24</a></sup>. Its annual report concedes it cannot guarantee customers will not use its platforms for purposes inconsistent with its values, and its privacy tools are applied by the customer's own governance teams (<a href="https://www.sec.gov/Archives/edgar/data/1321655/000132165526000011/pltr-20251231.htm" target="_blank" rel="noopener">10-K 2025</a>)<sup class="cites"><a class="cite" href="https://www.sec.gov/Archives/edgar/data/1321655/000132165526000011/pltr-20251231.htm" target="_blank" rel="noopener" data-ref="14">14</a></sup>.</p>
+        <p><strong>What this means for the plebeian.</strong> The people ranked and flagged by these systems have no relationship with the company that designs them. The only party they can hold to account is the agency, and by Palantir's own description that agency increasingly depends on the vendor for capacity it no longer builds itself.</p>
+      </section>
+
+      <section class="sec" id="s2-3">
+        <h3><span class="sec__no">2.3</span> Case study 1: Palantir in the US, from the LAPD to ICE</h3>
+        <p>This case study follows Palantir in the US at two scales. First, the LAPD's use of Palantir shows the mechanisms from Part 1 acting on the population of one city: everyday police contact is converted into points, and the points into further contact.</p>
+        <p>Brayne documents<sup class="cites"><a class="cite" href="http://www.jstor.org/stable/26426413" target="_blank" rel="noopener" data-ref="2">2</a></sup> that the LAPD’s field-interview point system assigns 5 points each for a violent criminal history, gang affiliation, prior arrest with a handgun, or parole/probation status- and that officers are incentivised to, ‘’FI’’ (interview and log) anyone they encounter, since, ‘’it’s one point for every police contact,’’ thus creating a feedback loop where surveillance itself manufactures the risk score that justifies further surveillance.</p>
+
+        <figure class="plate wide" data-explore="fi">
+          <button class="plate__zoom" type="button" aria-label="Enlarge Figure 5">
+            <img src="images/fi-card.jpg" width="1112" height="629" loading="lazy" alt="A blank LAPD Field Interview card with fields for persons with subject, names, date of birth, sex, gang or moniker, birthplace, additional information, date, time, location, officer and incident number.">
+          </button>
+          <figcaption><strong>Figure 5.</strong> Field Interview (FI) Cards; <em>Source</em>: LAPD<sup class="cites"><a class="cite" href="http://www.jstor.org/stable/26426413" target="_blank" rel="noopener" data-ref="2">2</a></sup></figcaption>
+        </figure>
+
+        <p>Brayne’s fieldwork also found more than 1,300 trained users of the Palantir platform within the LAPD’s region alone by the end of her 2-and-a-half year study, with new external datasets- including foreclosure records and even call data from pizza chains like Papa John’s- added to the system on an ongoing basis.</p>
+
+        <div class="plates wide">
+          <figure class="plate" data-explore="network">
+            <button class="plate__zoom" type="button" aria-label="Enlarge Figure 6">
+              <img src="images/palantir-network.jpg" width="1186" height="882" loading="lazy" alt="A Palantir network view centred on a person, Guy Cross, linked to colleagues, a partner, a sibling, arrests he appears in, a car he owns, an employer address and two phone numbers he operates.">
+            </button>
+            <figcaption><strong>Figure 6.</strong> Network in Palantir; <em>Source</em>: Palantir Technologies<sup class="cites"><a class="cite" href="http://www.jstor.org/stable/26426413" target="_blank" rel="noopener" data-ref="2">2</a></sup></figcaption>
+          </figure>
+          <figure class="plate" data-explore="alpr">
+            <button class="plate__zoom" type="button" aria-label="Enlarge Figure 7">
+              <img src="images/alpr-readings.jpg" width="1310" height="810" loading="lazy" alt="A street map of south Los Angeles with four automatic licence plate reader scans of the same plate plotted at different dates and times.">
+            </button>
+            <figcaption><strong>Figure 7.</strong> Plotted ALPR Readings; <em>Source</em>: Palantir Technologies<sup class="cites"><a class="cite" href="http://www.jstor.org/stable/26426413" target="_blank" rel="noopener" data-ref="2">2</a></sup></figcaption>
+          </figure>
+        </div>
+
+        <p>US immigration enforcement is the clearest continuation of Part 1's argument. ICE has used Palantir's Investigative Case Management system since 2014 (about $145M) and awarded the roughly $30M ImmigrationOS contract in April 2025.<sup class="cites"><a class="cite" href="https://palantirwatch.org/" target="_blank" rel="noopener" data-ref="15">15</a></sup> In January 2026, 404 Media revealed a further tool, ELITE, that lets ICE map potential deportation targets, open dossiers on each person, and see an address 'confidence score' drawn from Department of Health and Human Services and other agency data. The underlying pipeline is a data-sharing agreement under which ICE could receive personal data on nearly 80 million Medicaid patients. In July 2026, court filings by more than 20 Democratic attorneys general showed that Medicaid data improperly shared with ICE had then been passed to Palantir; Palantir told NPR the dataset had been purged.<sup class="cites"><span class="cite cite--plain" data-ref="25" tabindex="0">25</span></sup> This is Pearson, Jensen and Adey's 'legal gateway'<sup class="cites"><a class="cite" href="https://doi.org/10.24908/ss.v22i2.15826" target="_blank" rel="noopener" data-ref="3">3</a></sup> at national scale. Data surrendered to obtain healthcare becomes an enforcement lead, and reliance on public health insurance becomes a route to visibility for the deportation apparatus.</p>
+
+        <figure class="pipe wide" aria-labelledby="g-g">
+          <figcaption class="graph__head"><span class="graph__tag">Graph G</span> <span class="graph__title" id="g-g">The Medicaid pipeline, as described above</span></figcaption>
+          <ol class="pipe__steps">
+            <li class="pipe__step"><span class="pipe__k">Health insurance</span>Medicaid records<small>nearly 80 million patients</small></li>
+            <li class="pipe__step"><span class="pipe__k">Legal gateway</span>CMS–ICE data-sharing agreement</li>
+            <li class="pipe__step"><span class="pipe__k">Enforcement</span>ICE</li>
+            <li class="pipe__step pipe__step--end"><span class="pipe__k">Platform</span>Palantir · ELITE<small>target map, dossiers, address confidence score</small></li>
+          </ol>
+          <p class="graph__source">Drawn from the paragraph above and Appendix A<sup class="cites"><span class="cite cite--plain" data-ref="25" tabindex="0">25</span></sup></p>
+        </figure>
+
+        <p>The same logic now operates across the US federal state. A March 2025 executive order directed agencies to eliminate 'information silos', at a time when the New York Times counted 314 separate pieces of information held by federal agencies on each citizen. By May 2025 Palantir had received more than $113 million in federal spending since Trump took office. Members of Congress warned that Palantir was helping the IRS build a single searchable database of taxpayer records that could be shared across government.<sup class="cites"><span class="cite cite--plain" data-ref="26" tabindex="0">26</span></sup></p>
+      </section>
+
+      <section class="sec" id="s2-4">
+        <h3><span class="sec__no">2.4</span> Case study 2: Palantir in Germany (hessenDATA)</h3>
+        <p>Hesse's hessenDATA shows what outsourcing does to state institutions: a system bought without tender, overseen by rules the public could not see, checked only by a constitutional court, and then copied across Germany.</p>
+        <p>Ulbricht and Egbert (2024)<sup class="cites"><span class="cite cite--plain" data-ref="27" tabindex="0">27</span></sup> show what this infrastructuring looks like inside a European state. Hesse bought Palantir's Gotham software for its state police around 2017 and branded it 'hessenDATA'. The authors argue that regulating such platforms matters especially in the public sector because it affects vulnerable citizens and because it is not only a case of the state overseeing a tech company but of the state overseeing itself. They propose a platform-theory approach built around datafication, modularity and multilaterality. hessenDATA merges sources with different legal bases: police databases, telecoms records, social media and forensic phone extracts. Under German constitutional law, combining sources to generate new knowledge counts as data mining and triggers stricter protection. Parliamentarians worried that once social media was included, 'all kinds of information could be deemed relevant', pulling innocent people into scope. The contract was awarded without the required public tender on grounds of 'special urgency' over terrorist threats, and Hesse's data protection authority stayed publicly silent. When concerns arose that Palantir might access police data or share it with US intelligence, the Hessian government said a system of regulation and oversight existed, but the guidelines were not shared with the public or the parliamentary opposition. This is the consequence of the Palantir business model; exit for the state becomes more difficult the longer it cooperates with Palantir.</p>
+        <p>The scale of hessenDATA was only disclosed under legal pressure. At the Federal Constitutional Court hearing, Hesse's interior ministry stated that 2,099 people had access to the platform and that it was used in roughly 14,000 cases a year. In February 2023 the Court held that the Hesse and Hamburg provisions authorising automated police data analysis were unconstitutional, because they lacked sufficient thresholds for interference with the right to informational self-determination.<sup class="cites"><a class="cite" href="https://www.bundesverfassungsgericht.de/SharedDocs/Entscheidungen/EN/2023/02/rs20230216_1bvr154719en.html" target="_blank" rel="noopener" data-ref="28">28</a></sup></p>
+
+        <figure class="graph wide" data-chart="waffle" aria-labelledby="g-h">
+          <figcaption class="graph__head"><span class="graph__tag">Graph H</span> <span class="graph__title" id="g-h">hessenDATA's roughly 14,000 uses a year, by legal power</span></figcaption>
+          <div class="graph__legend"></div>
+          <div class="graph__canvas" role="img" aria-label="140 squares, each standing for 100 uses a year. 120 squares, about 12,000 uses, were made to prevent future criminal offences, the power the Court found unconstitutional. 20 squares, about 2,000 uses, were made to avert a present danger."></div>
+          <p class="graph__source">Each square = 100 uses. 2,099 people had access. Source: Federal Constitutional Court, judgment of 16 February 2023, para. 12<sup class="cites"><a class="cite" href="https://www.bundesverfassungsgericht.de/SharedDocs/Entscheidungen/EN/2023/02/rs20230216_1bvr154719en.html" target="_blank" rel="noopener" data-ref="28">28</a></sup></p>
+        </figure>
+
+        <p>Rather than ending the model, the ruling became a template for spreading it. Gotham now runs in Bavaria (as VeRA, since 2024), North Rhine-Westphalia (as DAR, since 2019/20) and Hesse (since 2017), and Baden-Württemberg approved it in July 2025. In Baden-Württemberg the software costs around €25 million with no exit clause, and although data is said to stay in German data centres, Palantir employees with data-centre access are regularly present at the police station. Under Bavarian law police can use Gotham without any suspicion of wrongdoing, so complainants, victims or bystanders can come under scrutiny, which prompted the civil rights group GFF to file a constitutional complaint. A reintroduced draft legislation (2026) sets limits on how this software is used; however, Palantir use remains in every state listed.<sup class="cites"><span class="cite cite--plain" data-ref="29" tabindex="0">29</span></sup></p>
+
+        <figure class="timeline wide" aria-labelledby="fig-8">
+          <figcaption class="fig-head" id="fig-8"><strong>Figure 8. How Palantir's Gotham spread through German policing</strong><sup class="cites"><span class="cite cite--plain" data-ref="29" tabindex="0">29</span></sup></figcaption>
+          <div class="timeline__cols" aria-hidden="true"><span>Date</span><span>Event</span></div>
+          <ol class="timeline__list">
+            <li><time>Mar 2026</time><p>Federal Interior Minister Dobrindt introduces draft legislation critics call 'Lex Palantir'</p></li>
+            <li><time>Jul 2025</time><p>Baden-Württemberg approves Gotham, at around €25 million with no exit clause</p></li>
+            <li><time>2024</time><p>Bavaria deploys Gotham as VeRA, usable without suspicion of wrongdoing</p></li>
+            <li><time>2023</time><p>Federal Interior Minister Faeser blocks federal use</p></li>
+            <li class="timeline__court"><time>Feb 2023</time><p>Federal Constitutional Court rules the Hesse and Hamburg provisions unconstitutional</p></li>
+            <li><time>2019/20</time><p>North Rhine-Westphalia deploys Gotham as DAR</p></li>
+            <li><time>c. 2017</time><p>Hesse buys Gotham without public tender and brands it hessenDATA</p></li>
+          </ol>
+        </figure>
+      </section>
+    </section>
+
+    <!-- ============ TAKEAWAYS ============ -->
+    <section class="part part--close" id="takeaways" aria-labelledby="takeaways-h">
+      <header class="part__head part__head--plain">
+        <h2 id="takeaways-h">Takeaways and our understanding</h2>
+      </header>
+      <p class="answer">Having followed the data from an everyday transaction to a police or deportation lead, our answer to the research question is this: <strong>outsourcing surveillance to private platforms makes the plebeian more visible to the state in proportion to how much they depend on it, while making the state less able to see, explain or undo what it has bought.</strong></p>
+      <ol class="takeaways">
+        <li><strong>The Process is not visible from below .</strong> Seen from the person's side, the pipeline in Figure 1 works as a process. Data given up to shop, claim benefits or get healthcare becomes a score (Part 1), and a private platform joins those scores into leads the state can act on (Part 2). At no point does the person gain a way to consent to it, see it or contest it. In our reading, this is where the two parts meet: Greenwood and Pearson et al.<sup class="cites"><a class="cite" href="http://www.jstor.org/stable/j.ctv14rms6g.12" target="_blank" rel="noopener" data-ref="1">1</a>, <a class="cite" href="https://doi.org/10.24908/ss.v22i2.15826" target="_blank" rel="noopener" data-ref="3">3</a></sup> show consent disappearing and poverty becoming visible, and Brayne<sup class="cites"><a class="cite" href="http://www.jstor.org/stable/26426413" target="_blank" rel="noopener" data-ref="2">2</a></sup> shows that sorting inside a police force; Iliadis and Acker, Wexler, and Ulbricht and Egbert<sup class="cites"><span class="cite cite--plain" data-ref="11" tabindex="0">11</span>, <span class="cite cite--plain" data-ref="12" tabindex="0">12</span>, <span class="cite cite--plain" data-ref="27" tabindex="0">27</span></sup> show that once the sorting moves into a vendor's platform, it also moves beyond public scrutiny.</li>
+        <li><strong>The state becomes dependent.</strong> Procurement is repeatedly bypassed through urgency (Hesse) Contracts without exit clauses, and services that begin free and then rise in price, turn a policy choice into a structural commitment, and Palantir's filings show why it gains from this: almost all of its recent government growth comes from existing government customers.<sup class="cites"><a class="cite" href="https://www.sec.gov/Archives/edgar/data/0001321655/000132165526000041/pltr-20260630.htm" target="_blank" rel="noopener" data-ref="19">19</a></sup></li>
+        <li><strong>Oversight moves outside the state.</strong> The scrutiny the state has outsourced away is carried out instead by litigators (GFF, Good Law Project), investigative journalists (404 Media, Liberty Investigates)<sup class="cites"><span class="cite cite--plain" data-ref="30" tabindex="0">30</span></sup> and FOI campaigners. The Swiss magazine Republik was even sued by Palantir over its reporting, and won on 22 of 23 claims.<sup class="cites"><a class="cite" href="https://palantirwatch.org/" target="_blank" rel="noopener" data-ref="15">15</a></sup></li>
+        <li><strong>Risk flows downward.</strong> The platform does not choose whom to watch; it integrates what the state already holds, and the state holds the most data on those who depend on it most: Medicaid recipients, benefit claimants, victims who report crimes, migrants obliged to register. We therefore understand outsourced integration as magnifying the differential visibility found in Part 1, and turning it from a risk score into enforcement action.</li>
+      </ol>
+      <p><strong>The Limitations of our Investigation.</strong> We believe that Palantir’s own defence must be considered too. They claim that ELITE targets specific individuals, such as those with final removal orders or serious criminal charges,<sup class="cites"><span class="cite cite--plain" data-ref="25" tabindex="0">25</span></sup> and that its software helped Bedfordshire Police identify more than 120 young people at risk of abuse or exploitation in its first eight days. Capability is shown case by case, while the overall distributional effect goes unmeasured, the same gap between scale and evidence we found in predictive policing. Our own evidence has a matching limit: neither case study directly measures who gets flagged by income, ethnicity or migration status, so the distributional effect is inferred from the data the state holds.</p>
+      <p class="conclusion"><strong>Our conclusion.</strong> Even so, the direction is the same in the US and Germany. Outsourcing does not simply make surveillance more efficient since it redistributes it, concentrating visibility on the disadvantaged and control in a private firm, while leaving accountability with a state that has less and less of the expertise needed to exercise it. It is not irreversible: courts, city oversight bodies and whole police regions have pushed back; Germany's federal domestic intelligence agency chose a French competitor.<sup class="cites"><span class="cite cite--plain" data-ref="29" tabindex="0">29</span></sup> But in our view it remains a political choice that institutions can revisit only while they keep enough in-house expertise, which is what the Palantir business model erodes.</p>
+    </section>
+
+    <!-- ============ APPENDIX ============ -->
+    <section class="back" id="appendix" aria-labelledby="appendix-h">
+      <h2 id="appendix-h">Appendix A compiled data list</h2>
+      <div class="ledger">
+        <div class="ledger__group">
+          <h4>Company scale and influence<sup class="cites"><span class="cite cite--plain" data-ref="13" tabindex="0">13</span>, <a class="cite" href="https://www.sec.gov/Archives/edgar/data/1321655/000132165526000011/pltr-20251231.htm" target="_blank" rel="noopener" data-ref="14">14</a>, <a class="cite" href="https://palantirwatch.org/" target="_blank" rel="noopener" data-ref="15">15</a></sup></h4>
+          <ul>
+            <li>FY2025 revenue $4.48B; about 54% from government; 74% from the US; 954 customers; 4,429 employees; market cap about $295B (late July 2026)</li>
+            <li>Q2 2026: revenue $1.935B (+93%); US government revenue $809M (+90%)</li>
+            <li>Lobbying: $2.40M (2020) rising to $6.08M (2025); early seed funding from the CIA's In-Q-Tel</li>
+            <li>US Army Enterprise Service Agreement: up to $10B over 10 years, consolidating 75 contracts (July 2025)</li>
+          </ul>
+        </div>
+        <div class="ledger__group">
+          <h4>US immigration and federal data<sup class="cites"><a class="cite" href="https://palantirwatch.org/" target="_blank" rel="noopener" data-ref="15">15</a>, <span class="cite cite--plain" data-ref="25" tabindex="0">25</span>, <span class="cite cite--plain" data-ref="26" tabindex="0">26</span></sup></h4>
+          <ul>
+            <li>ICE Investigative Case Management: 2014 to present, about $145M; ImmigrationOS: about $30M (April 2025)</li>
+            <li>ELITE: target map, individual dossiers, and an address confidence score using HHS data</li>
+            <li>CMS–ICE agreement covering nearly 80 million Medicaid patients</li>
+            <li>July 2026: Medicaid data improperly shared with ICE was passed on to Palantir</li>
+            <li>June 2026: Just Futures Law sued DHS/ICE under FOIA for records on ELITE, ImmigrationOS and ICM</li>
+            <li>March 2025 'information silos' executive order; 314 data points held per citizen</li>
+            <li>More than $113M in federal spending since Trump took office (as of May 2025)</li>
+          </ul>
+        </div>
+        <div class="ledger__group">
+          <h4>Germany<sup class="cites"><a class="cite" href="https://www.bundesverfassungsgericht.de/SharedDocs/Entscheidungen/EN/2023/02/rs20230216_1bvr154719en.html" target="_blank" rel="noopener" data-ref="28">28</a>, <span class="cite cite--plain" data-ref="29" tabindex="0">29</span></sup></h4>
+          <ul>
+            <li>hessenDATA: 2,099 users, about 14,000 cases a year</li>
+            <li>Federal Constitutional Court ruling of 16 February 2023 (1 BvR 1547/19, 1 BvR 2634/20)</li>
+            <li>Deployed in Bavaria (VeRA), NRW (DAR), Hesse and Baden-Württemberg</li>
+            <li>Baden-Württemberg: about €25M, no exit clause</li>
+            <li>Lower Saxony's interior minister called Palantir 'unmanageable' and ruled it out</li>
+            <li>The Bavarian LKA reported finding no backdoor in the software</li>
+          </ul>
+        </div>
+        <div class="ledger__group">
+          <h4>United Kingdom<sup class="cites"><span class="cite cite--plain" data-ref="30" tabindex="0">30</span>, <span class="cite cite--plain" data-ref="31" tabindex="0">31</span>, <a class="cite" href="https://palantirwatch.org/" target="_blank" rel="noopener" data-ref="15">15</a></sup></h4>
+          <ul>
+            <li>NHS FDP: £330M over seven years; 417 of 586 pages blanked out</li>
+            <li>June 2026: Commons Science, Innovation and Technology Committee called for termination; break clause in spring 2027</li>
+            <li>Nectar: 11 special category data types; used by 12 of 43 forces; five East Midlands forces withdrawing</li>
+            <li>At least six police forces have Palantir contracts totalling £7.8m</li>
+            <li>'Neither confirm nor deny' FOI guidance; Big Brother Watch complaint to the ICO</li>
+            <li>Met contract: £25.3m for 2026–27 plus a £24.8m optional extension, blocked by MOPAC</li>
+            <li>MoD: £240.6M direct award (December 2025) after four former MoD officials joined Palantir UK; Homes for Ukraine contract started free in 2022, rose to over £10M, and was cancelled in May 2026</li>
+          </ul>
+        </div>
+        <div class="ledger__group">
+          <h4>Other countries<sup class="cites"><a class="cite" href="https://palantirwatch.org/" target="_blank" rel="noopener" data-ref="15">15</a></sup></h4>
+          <ul>
+            <li>France's DGSI renewed for three years (December 2025); the Netherlands plans to replace Palantir; operations confirmed or suspected in 36 countries</li>
+          </ul>
+        </div>
+        <div class="ledger__group">
+          <h4>Added from Palantir's own records (primary sources, see section 2.2)<sup class="cites"><a class="cite" href="https://www.sec.gov/Archives/edgar/data/1321655/000132165526000011/pltr-20251231.htm" target="_blank" rel="noopener" data-ref="14">14</a>, <a class="cite" href="https://www.sec.gov/Archives/edgar/data/1321655/000119312520230013/d904406ds1.htm" target="_blank" rel="noopener" data-ref="16">16</a>, <a class="cite" href="https://www.sec.gov/Archives/edgar/data/1321655/000119312522050913/d273589d10k.htm" target="_blank" rel="noopener" data-ref="17">17</a>, <a class="cite" href="https://data.sec.gov/api/xbrl/companyconcept/CIK0001321655/us-gaap/NetIncomeLoss.json" target="_blank" rel="noopener" data-ref="18">18</a>, <a class="cite" href="https://www.sec.gov/Archives/edgar/data/0001321655/000132165526000039/a2026q2ex991pressrelease.htm" target="_blank" rel="noopener" data-ref="20">20</a>, <a class="cite" href="https://www.sec.gov/Archives/edgar/data/1321655/000119312520241694/d904406ds1a.htm" target="_blank" rel="noopener" data-ref="21">21</a>, <a class="cite" href="https://www.business-humanrights.org/en/latest-news/letter-from-palantir-responding-to-amnesty-international/" target="_blank" rel="noopener" data-ref="22">22</a>, <a class="cite" href="https://blog.palantir.com/correcting-the-record-response-to-the-eff-january-15-2026-report-on-palantir-4b3a12536cd2" target="_blank" rel="noopener" data-ref="23">23</a></sup></h4>
+          <ul>
+            <li>Government revenue: $345.5M (2019) to $2,402.3M (2025)</li>
+            <li>Net income (loss) attributable to common stockholders: −588.1M (2019), −1,166.4M (2020), +$1,625.0M (2025)</li>
+            <li>U.S. government revenue per quarter: $320M (Q3 2024) to $809M (Q2 2026)</li>
+            <li>U.S. share of revenue: 40% (2019), 74% (2025), 81% (Q2 2026)</li>
+            <li>Top three customers' share of revenue: 28% (2019) to 16% (2025); top-20 average revenue: $24.8M to $93.9M</li>
+            <li>2020 letter to Amnesty: declined contracts with ICE's deportation arm and Customs and Border Protection</li>
+            <li>January 2026 Palantir Blog: ICE application supports prioritising enforcement actions</li>
+            <li>2025 annual report: competes with customers' in-house software; cannot guarantee how customers use its platforms</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ SOURCES ============ -->
+    <section class="back" id="sources" aria-labelledby="sources-h">
+      <h2 id="sources-h">Sources</h2>
+      <ol class="refs">
+        <li id="ref-1">Greenwood, F. (2020). Data colonialism, surveillance capitalism and drones. In D. Specht (Ed.), <em>Mapping Crisis: Participation, Datafication and Humanitarianism in the Age of Digital Mapping</em> (pp. 89–118). University of London Press. <a href="http://www.jstor.org/stable/j.ctv14rms6g.12" target="_blank" rel="noopener">http://www.jstor.org/stable/j.ctv14rms6g.12</a></li>
+        <li id="ref-2">Brayne, S. (2017). Big Data Surveillance: The Case of Policing. <em>American Sociological Review</em>, <em>82</em>(5), 977–1008. <a href="http://www.jstor.org/stable/26426413" target="_blank" rel="noopener">http://www.jstor.org/stable/26426413</a></li>
+        <li id="ref-3">Pearson, E., Jensen, R. B., &amp; Adey, P. (2024). Pred-POl-POV: visibility, data flows, and the predictive policing of poverty. Surveillance &amp; Society, 22(2), 120–137. <a href="https://doi.org/10.24908/ss.v22i2.15826" target="_blank" rel="noopener">https://doi.org/10.24908/ss.v22i2.15826</a></li>
+        <li id="ref-4">FTC Recommends Congress Require the Data Broker Industry to be More Transparent and Give Consumers Greater Control Over Their Personal Information. (2025, April 21). Federal Trade Commission. <a href="https://www.ftc.gov/news-events/news/press-releases/2014/05/ftc-recommends-congress-require-data-broker-industry-be-more-transparent-give-consumers-greater" target="_blank" rel="noopener">https://www.ftc.gov/news-events/news/press-releases/2014/05/ftc-recommends-congress-require-data-broker-industry-be-more-transparent-give-consumers-greater</a></li>
+        <li id="ref-5">Hecht-Felella, L. (2024, February 23). Federal agencies are secretly buying consumer data. Brennan Center for Justice. <a href="https://www.brennancenter.org/our-work/analysis-opinion/federal-agencies-are-secretly-buying-consumer-data" target="_blank" rel="noopener">https://www.brennancenter.org/our-work/analysis-opinion/federal-agencies-are-secretly-buying-consumer-data</a></li>
+        <li id="ref-6">Police leaders debate merits of using data to predict crime. (2021, April 23). GovTech.<a href="https://www.govtech.com/public-safety/Police-Leaders-Debate-Merits-of-Using-Data-to-Predict-Crime.html" target="_blank" rel="noopener">https://www.govtech.com/public-safety/Police-Leaders-Debate-Merits-of-Using-Data-to-Predict-Crime.html</a></li>
+        <li id="ref-7">COLLINS, DAVE . Should police use computers to predict crimes and criminals? 2018. En ligne : <a href="https://apnews.com/article/14bb35110b644edc8798365ade767bd2" target="_blank" rel="noopener">https://apnews.com/article/14bb35110b644edc8798365ade767bd2</a> [consulté le 29 September 2026].</li>
+        <li id="ref-8">Mass extraction. (n.d.). Upturn. <a href="https://www.upturn.org/work/mass-extraction/" target="_blank" rel="noopener">https://www.upturn.org/work/mass-extraction/</a></li>
+        <li id="ref-9">R Street Institute. (2026, July 1). What works in American policing Part 6—Predictive Policing: Promise, pitfalls, and the Limits of Algorithmic Forecasting - R Street Institute. <a href="https://www.rstreet.org/commentary/what-works-in-american-policing-part-6-predictive-policing-promise-pitfalls-and-the-limits-of-algorithmic-forecasting/" target="_blank" rel="noopener">https://www.rstreet.org/commentary/what-works-in-american-policing-part-6-predictive-policing-promise-pitfalls-and-the-limits-of-algorithmic-forecasting/</a></li>
+        <li id="ref-10">LAPD to halt some data programs after critical audit. (2021, April 23). GovTech. <a href="https://www.govtech.com/public-safety/LAPD-to-Halt-Some-Data-Programs-After-Critical-Audit.html" target="_blank" rel="noopener">https://www.govtech.com/public-safety/LAPD-to-Halt-Some-Data-Programs-After-Critical-Audit.html</a></li>
+        <li id="ref-11">Iliadis, A. &amp; Acker, A. (2022). The seer and the seen. The Information Society, 38(5), 334–363. T&amp;F</li>
+        <li id="ref-12">Wexler, R. (2018). Life, liberty, and trade secrets. Stanford Law Review, 70, 1343. SLR</li>
+        <li id="ref-13">Palantir Q2 2026 8-K</li>
+        <li id="ref-14">Palantir Technologies Inc. (2026, February 17). <em>Form 10-K, fiscal year 2025</em>. SEC. <a href="https://www.sec.gov/Archives/edgar/data/1321655/000132165526000011/pltr-20251231.htm" target="_blank" rel="noopener">sec.gov</a></li>
+        <li id="ref-15"><a href="https://palantirwatch.org/" target="_blank" rel="noopener">PalantirWatch</a></li>
+        <li id="ref-16">Palantir Technologies Inc. (2020, August 25). <em>Form S-1 registration statement</em>. SEC. <a href="https://www.sec.gov/Archives/edgar/data/1321655/000119312520230013/d904406ds1.htm" target="_blank" rel="noopener">sec.gov</a></li>
+        <li id="ref-17">Palantir Technologies Inc. (2022–2025). <em>Form 10-K, fiscal years 2021–2024</em>. SEC. <a href="https://www.sec.gov/Archives/edgar/data/1321655/000119312522050913/d273589d10k.htm" target="_blank" rel="noopener">2021</a> · <a href="https://www.sec.gov/Archives/edgar/data/1321655/000132165523000011/pltr-20221231.htm" target="_blank" rel="noopener">2022</a> · <a href="https://www.sec.gov/Archives/edgar/data/1321655/000132165524000022/pltr-20231231.htm" target="_blank" rel="noopener">2023</a> · <a href="https://www.sec.gov/Archives/edgar/data/1321655/000132165525000022/pltr-20241231.htm" target="_blank" rel="noopener">2024</a></li>
+        <li id="ref-18">U.S. Securities and Exchange Commission. (2026). <em>Palantir Technologies Inc.: reported net income (loss)</em>. <a href="https://data.sec.gov/api/xbrl/companyconcept/CIK0001321655/us-gaap/NetIncomeLoss.json" target="_blank" rel="noopener">data.sec.gov</a></li>
+        <li id="ref-19">Palantir Technologies Inc. (2026). <em>Form 10-Q, quarter ended June 30, 2026</em>. SEC. <a href="https://www.sec.gov/Archives/edgar/data/0001321655/000132165526000041/pltr-20260630.htm" target="_blank" rel="noopener">sec.gov</a></li>
+        <li id="ref-20">Palantir Technologies Inc. (2024–2026). <em>Quarterly earnings releases, Q3 2024 to Q2 2026</em>. SEC. <a href="https://www.sec.gov/Archives/edgar/data/1321655/000132165524000207/a2024q3ex991earningsrelease.htm" target="_blank" rel="noopener">Q3 2024</a> · <a href="https://www.sec.gov/Archives/edgar/data/1321655/000132165525000007/a2024q4ex991earningsrelease.htm" target="_blank" rel="noopener">Q4 2024</a> · <a href="https://www.sec.gov/Archives/edgar/data/1321655/000132165525000063/a2025q1ex991pressrelease.htm" target="_blank" rel="noopener">Q1 2025</a> · <a href="https://www.sec.gov/Archives/edgar/data/1321655/000132165525000105/a2025q2ex991pressrelease.htm" target="_blank" rel="noopener">Q2 2025</a> · <a href="https://www.sec.gov/Archives/edgar/data/1321655/000132165525000130/a2025q3ex991earningsrelease.htm" target="_blank" rel="noopener">Q3 2025</a> · <a href="https://www.sec.gov/Archives/edgar/data/1321655/000132165526000004/a2025q4ex991earningsrelease.htm" target="_blank" rel="noopener">Q4 2025</a> · <a href="https://www.sec.gov/Archives/edgar/data/0001321655/000132165526000026/a2026q1ex991pressrelease.htm" target="_blank" rel="noopener">Q1 2026</a> · <a href="https://www.sec.gov/Archives/edgar/data/0001321655/000132165526000039/a2026q2ex991pressrelease.htm" target="_blank" rel="noopener">Q2 2026</a></li>
+        <li id="ref-21">Palantir Technologies Inc. (2020, September). <em>Form S-1/A</em>. SEC. <a href="https://www.sec.gov/Archives/edgar/data/1321655/000119312520241694/d904406ds1a.htm" target="_blank" rel="noopener">sec.gov</a></li>
+        <li id="ref-22">Bowman, C., for Palantir Technologies. (2020, October 19). <em>Letter responding to Amnesty International</em>. <a href="https://www.business-humanrights.org/en/latest-news/letter-from-palantir-responding-to-amnesty-international/" target="_blank" rel="noopener">business-humanrights.org</a></li>
+        <li id="ref-23">Palantir Technologies. (2026, January 27). <em>Correcting the record: response to the EFF January 15, 2026 report on Palantir</em>. Palantir Blog. <a href="https://blog.palantir.com/correcting-the-record-response-to-the-eff-january-15-2026-report-on-palantir-4b3a12536cd2" target="_blank" rel="noopener">blog.palantir.com</a></li>
+        <li id="ref-24">Palantir Technologies. (2025, June 9). <em>Correcting the record: responses to the May 30, 2025 New York Times article on Palantir</em>. Palantir Blog. <a href="https://blog.palantir.com/correcting-the-record-responses-to-the-may-30-2025-new-york-times-article-on-palantir-55b60ae107da" target="_blank" rel="noopener">blog.palantir.com</a></li>
+        <li id="ref-25">404 Media: ELITE user guide · Fortune · NPR · Palantir response</li>
+        <li id="ref-26">Snopes · BHRRC / NYT · Wyden/AOC letter · Nextgov</li>
+        <li id="ref-27">Ulbricht, L. &amp; Egbert, S. (2024). In Palantir we trust? Big Data &amp; Society, 11(3). SAGE</li>
+        <li id="ref-28"><a href="https://www.bundesverfassungsgericht.de/SharedDocs/Entscheidungen/EN/2023/02/rs20230216_1bvr154719en.html" target="_blank" rel="noopener">Bundesverfassungsgericht judgment, 16 Feb 2023</a> · <a href="https://www.bundesverfassungsgericht.de/SharedDocs/Pressemitteilungen/EN/2023/bvg23-018.html" target="_blank" rel="noopener">press release</a></li>
+        <li id="ref-29">IamExpat · The Local · heise (BW) · heise (alternatives) · The Left Berlin</li>
+        <li id="ref-30">Computing (NHS FDP) · Liberty Investigates (Nectar) · Liberty Investigates (victims) · Democracy for Sale (forces dropping Nectar) · Democracy for Sale (NCND) · Computer Weekly</li>
+        <li id="ref-31">BBC via Yahoo (Met/MOPAC)</li>
+        <li id="ref-32">Haggerty, K. &amp; Ericson, R. (2000). The surveillant assemblage. British Journal of Sociology, 51(4), 605–622.</li>
+        <li id="ref-33">Type Investigations (New Orleans) · CSO Online · Privacy International</li>
+      </ol>
+    </section>
+
+    <footer class="foot">
+      <div class="barcode" data-barcode="How does the outsourcing of surveillance to private firms impact the plebeian" aria-hidden="true"></div>
+      <a class="foot__top" href="#top">Back to the top</a>
+    </footer>
+  </main>
+</div>
+
+<dialog class="lightbox" aria-label="Enlarged figure">
+  <form method="dialog"><button class="lightbox__close" type="submit">Close</button></form>
+  <img class="lightbox__img" src="" alt="">
+  <p class="lightbox__cap"></p>
+</dialog>
+
+<div class="tip" role="tooltip" hidden></div>
+<div class="peek" role="tooltip" hidden></div>
+</body>
+</html>
